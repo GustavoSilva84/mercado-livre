@@ -1,0 +1,55 @@
+.container {
+    margin-top: 20px;
+    padding: 20px  10px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+} 
+
+#body {
+    margin-top: 10px;
+}
+
+#body span {
+    display: block;
+    margin-right: auto;
+}
+
+.allocatedStock {
+    text-decoration: line-through;
+    color: red;
+}
+
+.grup {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.grup:first-child {
+    border-bottom: 1px solid #ccc;
+}
+
+.grup button {
+    margin-left: 10px;
+    width: 50px;
+    height: 25px;
+    display: block;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #ccc;
+}
+
+#saveButton {
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    max-width: 200px;
+    background-color: #95c6dd;
+    height: 35px;
+    margin-top: 20px;
+    border-radius: 6px;
+    border: 1px solid #cccccc;
+    border: none;
+    font-size: 16px;
+}

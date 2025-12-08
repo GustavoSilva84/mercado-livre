@@ -1,0 +1,9 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header span {
+    display: block;
+    font-weight: 500;
+}
