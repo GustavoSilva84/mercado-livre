@@ -1,0 +1,90 @@
+
+.containerVariation {
+    margin-top: 20px;
+}
+
+.formVariation {
+    grid-template-columns: 1fr 1fr 1fr 1fr !important;
+}
+
+.formVariation div:nth-last-child(5) {
+    grid-template-rows: 1;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.formVariation div:nth-last-child(4) {
+    grid-template-rows: 1;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.formVariation div:nth-last-child(2) {
+    grid-template-rows: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+/* .formVariation div:nth-last-child(3) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+} */
+
+.formVariation button {
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+.title {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin: 0;
+}
+
+#createVariation {
+    border: 1px solid #cccccc;
+    padding: 20px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    
+}
+
+#listVariation {
+    margin-top: 16px;
+    list-style-type: none;
+    padding: 0;
+}
+
+#buttonAdd {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 100%;
+    height: 35px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#listVariation {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.buttonSubmit {
+    width: 100%;
+    height: 50px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.buttonSubmit:disabled {
+    cursor: not-allowed;
+}
+
+.buttonAddVariation {
+    margin-top: auto;
+}

@@ -1,24 +1,26 @@
 
 import styles from './styles.module.css';
 
-import { IProductTypes } from '../../../types/product.types';
-import StockVariationLayout from '../variation';
-import CardHeader from '../../../container/cards/header';
+import { IProductTypes } from '../../../../types/product.types';
+import CardHeader from '../../../../component/cards/header';
+import VariationLayout from '../variation';
 
 interface IProps {
     children?: React.ReactNode | React.ReactNode[];
 
     data: IProductTypes;
+
+    className?: string;
 }
 
-export default function ProductCardLayout({ children, data }: IProps) {
+export default function ProductCardLayout({ children, data, className }: IProps) {
   return (
-    <div className={styles.stockCardLayout}>
+    <div className={[styles.container, className].join(" ")}>
         <CardHeader name={data.name} sku={data.sku} />
 
-        <div id={styles.variantsContainer}>
+        <div id={[styles.variantsContainer].join(" ")}>
             {data.variation.map((variant, index) => (
-                <StockVariationLayout
+                <VariationLayout
                     key={index}
                     id={variant.id}
                     name={variant.name}

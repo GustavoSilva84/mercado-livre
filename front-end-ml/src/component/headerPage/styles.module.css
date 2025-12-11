@@ -1,0 +1,20 @@
+
+.container {
+    margin-top: 50px;
+}
+
+#grupText h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333333;
+    margin: 0;
+}
+
+#grupText p {
+    margin-top: 8px;
+    color: #666666;
+    border-top: 1px solid #e0e0e0;
+    padding: 10px 0 0 0;
+}
+
+

@@ -6,13 +6,15 @@
 
 
 import { useEffect, useState } from "react";
-import Container from "../../container/container";
-import ProductCardLayout from "../../layout/stock/product";
+import Container from "../../../component/container";
+import ProductCardLayout from "../../../layout/product/stock/product";
 import styles from "./styles.module.css";
-import { axiosConfing } from "../../config/axios";
-import { IProductTypes } from "../../types/product.types";
+import { axiosConfing } from "../../../config/axios";
+import { IProductTypes } from "../../../types/product.types";
+import { SearchComponent } from "../../../component/search";
+import HeaderPageComlponent from "../../../component/headerPage";
 
-export default function StockPage() {
+export default function ProductStockPage() {
     const [data, setData] = useState<Array<IProductTypes>>([]);
 
     useEffect(() => {
@@ -45,22 +47,25 @@ export default function StockPage() {
     return (
         <div className={styles.styles}>
             <Container claassName={styles.container}>
-                <div id={styles.header}>
-                    <span>Estoque Mercado Livre</span>
+                <HeaderPageComlponent
+                    title="Estoque Mercado Livre"
+                    description="Última atualização: ----"
+                />
 
-                    {/* há 5 horas */}
-                    <span id={styles.lastUpdate}> Última atualização: ----  </span>
-                </div>
-
+                <SearchComponent
+                    
+                    onSearch={(e) => console.log(e)}
+                    className={styles.search}
+                />
 
                 {data.map((_data, index) => (
-                    <ProductCardLayout key={index} data={_data} />
+                    <ProductCardLayout 
+                        key={index} 
+                        data={_data} 
+                        className={styles.productCard}
+                    />
                 ))
                 }
-
-
-
-
             </Container>
         </div>
     )

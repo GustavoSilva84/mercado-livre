@@ -8,6 +8,9 @@ export interface IVariationTypes {
     stock: number;
 }
 
+
+
+
 export interface IProductTypes {
     id: number;
 

@@ -1,8 +1,8 @@
 
 import { useEffect, useState } from 'react';
-import CardHeader from '../../../container/cards/header';
+import CardHeader from '../../../../component/cards/header';
 import styles from './styles.module.css';
-import { axiosConfing } from '../../../config/axios';
+import { axiosConfing } from '../../../../config/axios';
 
 interface IProps {
     id: number;
@@ -12,11 +12,13 @@ interface IProps {
     allocatedStock: number;
     stock: number;
 
+    className?: string;
 }
 
-export default function StockVariationLayout({  id, name, sku, allocatedStock, stock }: IProps) {
+export default function VariationLayout({  id, name, sku, allocatedStock, stock, className }: IProps) {
     const dataInit = { allocatedStock, stock };
     const [data, setData] = useState(dataInit);
+    const [isLoad, setIsLoad] = useState(false);
 
     function allocatedStockAdd() {
         if(data.stock <= 0) return;
@@ -37,12 +39,22 @@ export default function StockVariationLayout({  id, name, sku, allocatedStock, s
         setData({ ...data, stock: data.stock - 1 });
     }
 
+    useEffect(() => {
+        saveChanges();
+    }, [data])
+
     async function saveChanges() {
         try {
+            setIsLoad(true);
+
+            console.log(data)
+
             await axiosConfing.patch(`/variation/${id}`, {
                 allocatedStock: data.allocatedStock,
                 stock: data.stock
             });
+
+            setIsLoad(false);
 
             console.log("Salvo com sucesso");
         }catch(err) {
@@ -51,30 +63,23 @@ export default function StockVariationLayout({  id, name, sku, allocatedStock, s
     }
 
     return (    
-        <div className={styles.container}>
+        <div className={[styles.container, className].join(" ")}>
             <CardHeader name={name} sku={sku} />
 
 
             <div id={styles.body}>
                 <div className={styles.grup}>
                     <span className={[styles.allocatedStock].join(" ")}>Reservado (vendido): {data.allocatedStock}</span>
-                    <button onClick={allocatedStockRemove}> - </button>
-                    <button onClick={allocatedStockAdd}> + </button>
+                    <button className={isLoad ? styles.loadButton : ""} disabled={isLoad} onClick={allocatedStockRemove}> - </button>
+                    <button className={isLoad ? styles.loadButton : ""} disabled={isLoad} onClick={allocatedStockAdd}> + </button>
                 </div>
                 
                 <div className={styles.grup}>
                     <span>Disponível: {data.stock}</span>
-                    <button onClick={stockRemove}> - </button>
-                    <button onClick={stockAdd}> + </button>
+                    <button className={isLoad ? styles.loadButton : ""} disabled={isLoad} onClick={stockRemove}> - </button>
+                    <button className={isLoad ? styles.loadButton : ""} disabled={isLoad} onClick={stockAdd}> + </button>
                 </div>
             </div>
-
-            { 
-                dataInit.allocatedStock == data.allocatedStock && 
-                dataInit.stock == data.stock ? "" : 
-                <button id={styles.saveButton} onClick={saveChanges}> Salvar </button> 
-            }
-
         </div>  
     );
 }

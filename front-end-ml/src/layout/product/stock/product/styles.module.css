@@ -1,0 +1,16 @@
+.container {
+    background-color: #f7f7f7;
+    padding: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    margin-bottom: 80px;
+
+}
+
+#variantsContainer {
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5px;
+}
+

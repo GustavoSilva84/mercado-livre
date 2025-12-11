@@ -1,0 +1,15 @@
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+
+    border-radius: 8px;
+    border: 1px solid #cccccc;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sku input:not(:focus) {
+    opacity: 0.4;
+}

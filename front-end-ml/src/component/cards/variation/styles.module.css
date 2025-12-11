@@ -1,0 +1,28 @@
+
+.container {
+    font-size: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    padding: 10px; 
+    box-sizing: border-box;
+    cursor: pointer;   
+    transition: 200ms;
+}
+
+
+.container span {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.selected {
+    border: 1px solid #2baae691;
+    background-color: #d8f3ff91;
+    transform: scale(1.02);
+}
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 0 20px 0;
+    ;
+    
+}
+
+.container {
+    border-radius: 8px;
+    border: 1px solid #cccccc;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+
+
+}
+
+.sku input:not(:focus) {
+    opacity: 0.4;
+}
+
+.skuNotFocus input:not(:focus) {
+    opacity: 1 !important;
+}

@@ -1,13 +1,13 @@
 .container {
-    margin-top: 20px;
     padding: 20px  10px;
-
+    
     border: 1px solid #ccc;
     border-radius: 8px;
+    background-color: #ffffff73;
 } 
 
 #body {
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 #body span {
@@ -23,11 +23,13 @@
 .grup {
     display: flex;
     align-items: center;
-    padding: 20px 0;
+    /* padding: 20px 0; */
 }
 
 .grup:first-child {
     border-bottom: 1px solid #ccc;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
 }
 
 .grup button {
@@ -37,6 +39,8 @@
     display: block;
     border-radius: 4px;
     outline: none;
+    cursor: pointer;
+
     border: 1px solid #ccc;
 }
 
@@ -45,11 +49,20 @@
     display: block;
     margin-left: auto;
     max-width: 200px;
-    background-color: #95c6dd;
+    background-color: #a8cee0;
     height: 35px;
     margin-top: 20px;
     border-radius: 6px;
     border: 1px solid #cccccc;
     border: none;
     font-size: 16px;
+}
+
+
+.loadButton:disabled {
+    opacity: 0.5;
+}
+
+.loadButton {
+    cursor: progress;
 }
